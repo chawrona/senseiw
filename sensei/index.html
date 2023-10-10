@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensei Countdown</title>
+    <link rel="shortcut icon" href="./Zrzut ekranu 2023-10-10 132119.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("./pobrane.gif");
+            background-size: cover;
+            color: rgb(255, 255, 255);
+            font-family: 'Kalam', cursive;
+            letter-spacing: 2px;
+            font-size: 2em;
+            text-align: center;
+            min-height: 100vh;
+            padding-top: 1%;
+        }
+        .span {
+            color: rgb(215, 215, 215);
+        }
+        .container {
+            padding-top: 2em;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            
+        }
+
+        h1:nth-of-type(2) {
+            margin-top: 25px;
+        }
+        img {
+            
+            width: 250px;
+        }
+
+        @media (width < 800px) {
+            body {font-size: 1em;} 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span id="demo">829</span>to live
+        </h1>
+        <h2 id="demo2"></h2>
+        <h1>SenseiW</h1>
+        <img src="./Zrzut ekranu 2023-10-10 132119.png" alt="">
+        <h3>"Strollował" ~ Dawid Ch.</h3>
+        <h3>"Prawdziwy golfista by przeżył" ~ Michał S.</h3>
+        <h3>"Nie no kończymy" ~ Damian S.</h3>
+    </div>
+
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 26, 2026 00:00:00").getTime();
+var now = new Date().getTime();
+var distance = countDownDate - now;
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+document.getElementById("demo").innerHTML = days > 1 ? (days + 1) + " days " : (days + 1) +" day ";
+
+  document.getElementById("demo2").innerHTML = seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60;
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days > 1 ? (days + 1) + " days " : (days + 1) +" day ";
+  document.getElementById("demo2").innerHTML = seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "SENSEI DEAD";
+  }
+}, 1000);
+</script>
+</body>
+</html>
